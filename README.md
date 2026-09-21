@@ -59,7 +59,7 @@ DEV_STAGING (dbt views)
 The marts layer will be designed to answer the following:
 
 - **Customer segmentation** — Which clients are high, medium and low value based on transaction behaviour?
-- **Loan performance** — What account and client characteristics are associated with loan default?
+- **Loan customer characteristics** — What account and client characteristics are associated with customers with loans?
 - **Transaction behaviour** — How does spending behaviour change before and after a loan is issued?
 - **Regional analysis** — How does credit performance and transaction volume vary by district?
 
