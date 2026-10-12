@@ -1,5 +1,11 @@
 packages:
+- package: calogica/dbt_date
+  name: dbt_date
+  version: 0.10.1
+- package: Matts52/dbt_orphan
+  name: dbt_orphan
+  version: 0.3.1
 - package: dbt-labs/dbt_utils
   name: dbt_utils
   version: 1.4.1
-sha1_hash: 5dc8e238efe9d2ded1dbe1b305dd12706da0e471
+sha1_hash: 54a14a586d4ec5fb9ad756a30efd0402f9f29c16

@@ -1,0 +1,5 @@
+loan_status_code,loan_status_description,is_defaulted
+A,Contract finished - no problems,false
+B,Contract finished - loan not paid,true
+C,Contract running - no problems thus far,false
+D,Contract running - client in debt,true
