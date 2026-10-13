@@ -10,12 +10,7 @@ SELECT
     TO_CHAR(date_day, 'YYYYMMDD')::INT AS date_id,
     date_day::DATE AS full_date,
     YEAR(full_date) AS year,
-    CASE
-        WHEN MONTH(full_date) IN (1,2,3) THEN 'Q1'
-        WHEN MONTH(full_date) IN (4,5,6) THEN 'Q2'
-        WHEN MONTH(full_date) IN (7,8,9) THEN 'Q3'
-        WHEN MONTH(full_date) IN (10,11,12) THEN 'Q4'
-    END AS quarter,
+    QUARTER(full_date) AS quarter,
     MONTH(full_date) AS month,
     MONTHNAME(full_date) AS month_name,
     WEEK(full_date) as week_of_year,

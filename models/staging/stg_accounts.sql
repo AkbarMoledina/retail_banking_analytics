@@ -6,6 +6,5 @@ SELECT
     account_id,
     district_id,
     frequency,
-    date,
-    {{ format_date('date') }} AS creation_date
+    {{ format_date('date') }} AS account_creation_date
 FROM source
