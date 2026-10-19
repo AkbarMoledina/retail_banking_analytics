@@ -1,0 +1,9 @@
+Factors that might make clients risky to lend to:
+
+- Previously defaulted loans
+- Number/value of loans
+- Region/district (avg salaries, crimes, unemployment rates, etc.)
+- Value of standing orders
+- Value of standing orders relative to district avg salary
+- Value of standing orders and loan repayments relative to district avg salary
+- Client age

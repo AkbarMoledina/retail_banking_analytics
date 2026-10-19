@@ -3,11 +3,11 @@ sources:
     database: berka_analytics
     schema: dev_raw
     tables:
-      - name: accounts
-      - name: cards
-      - name: clients
-      - name: dispositions
-      - name: districts
-      - name: loans
-      - name: orders
-      - name: transactions
+      - name: account
+      - name: card
+      - name: client
+      - name: disposition
+      - name: district
+      - name: loan
+      - name: standing_order
+      - name: transaction
