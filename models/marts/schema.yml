@@ -16,10 +16,12 @@ models:
       - name: gender
         tests:
           - accepted_values:
-              values: ['Male', 'Female']
+              arguments:
+                values: ['Male', 'Female']
       - name: district_id
         tests:
           - not_null
           - relationships:
-              to: ref('dim_district')
-              field: district_id
+              arguments:
+                to: ref('dim_district')
+                field: district_id

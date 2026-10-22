@@ -4,6 +4,5 @@ SELECT
     district_id,
     client_id,
     statement_frequency,
-    account_creation_date,
-    TO_CHAR(account_creation_date, 'YYYYMMDD')::INT AS account_creation_date_id
+    {{ generate_date_id('account_creation_date') }} AS account_creation_date_id
 FROM {{ ref('int_accounts_enriched') }}
