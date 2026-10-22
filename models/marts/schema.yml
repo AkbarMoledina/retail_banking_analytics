@@ -1,0 +1,25 @@
+models:
+  - name: dim_account
+    columns:
+      - name: account_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: dim_client
+    columns:
+      - name: client_id
+        tests:
+          - unique
+          - not_null
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female']
+      - name: district_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_district')
+              field: district_id

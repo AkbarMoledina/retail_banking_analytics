@@ -1,0 +1,7 @@
+models:
+  - name: int_client_demographics
+    columns:
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female']

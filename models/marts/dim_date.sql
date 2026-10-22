@@ -7,16 +7,16 @@ WITH date_spine AS (
 )
 
 SELECT
-    TO_CHAR(date_day, 'YYYYMMDD')::INT AS date_id,
+    {{ generate_date_id('date_day') }} AS date_id,
     date_day::DATE AS full_date,
-    YEAR(full_date) AS year,
-    QUARTER(full_date) AS quarter,
-    MONTH(full_date) AS month,
-    MONTHNAME(full_date) AS month_name,
-    WEEK(full_date) as week_of_year,
-    DAY(full_date) AS day,
-    DAYNAME(full_date) AS day_name,
-    DAYOFWEEKISO(full_date) AS day_of_week,
-    CASE WHEN DAYOFWEEKISO(full_date) IN (6,7) THEN TRUE ELSE FALSE END AS is_weekend
+    YEAR(date_day) AS year,
+    QUARTER(date_day) AS quarter,
+    MONTH(date_day) AS month,
+    MONTHNAME(date_day) AS month_name,
+    WEEK(date_day) as week_of_year,
+    DAY(date_day) AS day,
+    DAYNAME(date_day) AS day_name,
+    DAYOFWEEKISO(date_day) AS day_of_week,
+    CASE WHEN DAYOFWEEKISO(date_day) IN (6,7) THEN TRUE ELSE FALSE END AS is_weekend
 FROM date_spine
 ORDER BY full_date

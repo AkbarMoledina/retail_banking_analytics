@@ -1,5 +1,3 @@
-{{ config(materialized='view') }}
-
 WITH client_details AS (
     SELECT
         client_id,
@@ -21,10 +19,6 @@ WITH client_details AS (
 SELECT
     client_id,
     district_id,
-    birth_number,
-    TRY_TO_DATE(birth_year::VARCHAR || '-' || LPAD(birth_month::VARCHAR, 2, 0) || '-' || LPAD(birth_day::VARCHAR, 2, 0)) AS birth_date,
-    birth_year,
-    birth_month,
-    birth_day,
+    TRY_TO_DATE(birth_year::VARCHAR || '-' || LPAD(birth_month::VARCHAR, 2, 0) || '-' || LPAD(birth_day::VARCHAR, 2, 0), 'YYYY-MM-DD') AS birth_date,
     gender
 FROM client_details
