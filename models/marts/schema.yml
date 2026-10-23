@@ -1,10 +1,31 @@
 models:
+
+  - name: fct_loan
+    columns:
+      - name: loan_id
+        tests:
+          - unique
+          - not_null
+      - name: account_sk
+        tests:
+          - relationships:
+              to: ref('dim_account')
+              field: account_sk
+
+
+
   - name: dim_account
     columns:
       - name: account_id
         tests:
           - unique
           - not_null
+      - name: district_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_district')
+              field: district_id
 
 
   - name: dim_client

@@ -9,3 +9,6 @@ Factors that might make clients risky to lend to:
 - Value of standing orders and loan repayments relative to district avg salary
 - Client age
 - Gender
+
+
+district sample size is too small, better to use region

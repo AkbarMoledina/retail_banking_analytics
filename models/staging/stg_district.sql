@@ -5,7 +5,7 @@ WITH source AS (
 SELECT
     A1 AS district_id,
     A2 AS district_name,
-    A3 AS region,
+    INITCAP(A3) AS region,
     A4 AS population,
     A5 AS municipalities_0_to_499,
     A6 AS municipalities_500_to_1999,

@@ -5,7 +5,9 @@ SELECT
     l.amount,
     l.duration,
     l.payments,
-    l.status
-FROM {{ ref('stg_loan') }} l
+    l.status,
+    l.is_defaulted,
+    l.is_active
+FROM {{ ref('int_loan_status_enriched') }} l
 LEFT JOIN {{ ref('dim_account') }} a
 ON l.account_id = a.account_id
