@@ -4,7 +4,7 @@
 
 An end-to-end analytics engineering project modelling retail banking data using dbt and Snowflake. Built on the [Berka dataset](https://www.kaggle.com/datasets/marceloventura/the-berka-dataset) — a real anonymised dataset from a Czech bank, containing over 1 million transactions across 5,300+ clients.
 
-The project demonstrates production-grade analytics engineering patterns including a Kimball-style star schema, incremental fact table materialisations, surrogate keys, and comprehensive dbt testing.
+The project demonstrates production-grade analytics engineering patterns including a Kimball-style star schema, incremental fact table materialisations, surrogate keys, and comprehensive dbt testing. The project will investigate what factors influence lending risk, and then will look to assign risk scores to clients of the bank.
 
 ---
 
@@ -30,11 +30,17 @@ Raw tables were loaded into Snowflake via the Snowflake UI as a one-time ingesti
 ## Project Architecture
 
 ```
-RAW (Snowflake)
+DEV_RAW
     └── accounts, cards, clients, dispositions, districts, loans, orders, transactions
 
-DEV_STAGING (dbt views)
+DEV_STAGING
     └── stg_accounts, stg_cards, stg_clients, stg_dispositions, stg_districts, stg_loans, stg_orders, stg_transactions
+
+DEV_INTERMEDIATE
+    └── int_accounts_enriched, int_client_demographics, int_loan_status_enriched, int_transactions_translated
+
+DEV_MARTS
+    └── dim_account, dim_client, dim_date, dim_district, fct_loan, fct_transaction
 ```
 
 ---
@@ -45,8 +51,8 @@ DEV_STAGING (dbt views)
 |---|---|
 | Raw data ingestion | ✅ Complete |
 | Staging models | ✅ Complete |
-| Dimensions | 🔄 In development |
-| Fact tables | 🔄 In development |
+| Dimensions | ✅ Complete |
+| Fact tables | ✅ Complete |
 | Marts | 🔄 In development |
 | dbt tests | 🔄 In development |
 | dbt documentation | 🔄 In development |
@@ -54,12 +60,10 @@ DEV_STAGING (dbt views)
 
 ---
 
-## Key Analytical Questions
+## Potential Future Analytical Questions
 
-The marts layer will be designed to answer the following:
-
+- **Loan customer characteristics** — What account and client characteristics are associated with customers with defaulted loans?
 - **Customer segmentation** — Which clients are high, medium and low value based on transaction behaviour?
-- **Loan customer characteristics** — What account and client characteristics are associated with customers with loans?
 - **Transaction behaviour** — How does spending behaviour change before and after a loan is issued?
 - **Regional analysis** — How does credit performance and transaction volume vary by district?
 
@@ -73,11 +77,17 @@ retail_banking_analytics/
 │   ├── staging/
 │   │   └── stg_*.sql
 │   ├── intermediate/
+│   │   └── int_*.sql
 │   ├── marts/
+│   │   ├── dim_*.sql
+│   │   └── fct_*.sql
 │   └── sources.yml
 ├── macros/
+│   └── *.sql
 ├── tests/
+│   └── *.sql
 ├── seeds/
+│   └── *.csv
 └── dbt_project.yml
 ```
 ---
